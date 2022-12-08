@@ -10,7 +10,7 @@
         android:id="@+id/doodleView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="0dp" />
 
     <Button
@@ -26,29 +26,25 @@
         app:layout_constraintVertical_bias="0.976" />
 
     <Button
-        android:id="@+id/colorButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.765"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        android:id="@+id/blueButton"
+        android:background="@color/design_default_color_error"
+        android:layout_width="41dp"
+        android:layout_height="43dp"
+        tools:layout_editor_absoluteX="165dp"
+        tools:layout_editor_absoluteY="254dp" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="412dp"
-        android:layout_height="72dp"
-        android:background="@color/teal_700"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/yellowButton"
+        android:layout_width="41dp"
+        android:layout_height="43dp"
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="263dp" />
+
+    <Button
+        android:id="@+id/redButton"
+        android:layout_width="41dp"
+        android:layout_height="43dp"
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="254dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
