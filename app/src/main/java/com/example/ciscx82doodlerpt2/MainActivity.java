@@ -19,19 +19,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DoodleView doodleView=findViewById(R.id.doodleView);
-        Button clearButton= findViewById(R.id.clearButton);
+        Button undoButton= findViewById(R.id.undoButton);
         Button blueButton=findViewById(R.id.blueButton);
         Button yellowButton=findViewById(R.id.yellowButton);
         Button redButton=findViewById(R.id.redButton);
         Button colorButton=findViewById(R.id.colorButton);
 
-//        redButton.setOnClickListener(this);
 
-        clearButton.setOnClickListener(
+        undoButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.d("value", "Whussup World");
+                        doodleView.undo();
                     }
                 }
         );
