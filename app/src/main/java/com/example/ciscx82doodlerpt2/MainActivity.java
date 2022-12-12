@@ -17,26 +17,48 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DoodleView doodleView=new DoodleView(this);
         setContentView(R.layout.activity_main);
+        DoodleView doodleView=findViewById(R.id.doodleView);
         Button clearButton= findViewById(R.id.clearButton);
+        Button blueButton=findViewById(R.id.blueButton);
+        Button yellowButton=findViewById(R.id.yellowButton);
+        Button redButton=findViewById(R.id.redButton);
         Button colorButton=findViewById(R.id.colorButton);
-//        clearButton.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        Log.d("value", "Whussup World");
-//                    }
-//                }
-//        );
-//        colorButton.setOnClickListener(
-//                new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//
-//                    }
-//                }
-//        );
+
+//        redButton.setOnClickListener(this);
+
+        clearButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Log.d("value", "Whussup World");
+                    }
+                }
+        );
+        blueButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        doodleView.changeColor(Color.BLUE);
+                    }
+                }
+        );
+        yellowButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        doodleView.changeColor(Color.YELLOW);
+                    }
+                }
+        );
+        redButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        doodleView.changeColor(Color.RED);
+                    }
+                }
+        );
         //color picker
 //        mColorPreview = findViewById(R.id.preview_selected_color);
     }

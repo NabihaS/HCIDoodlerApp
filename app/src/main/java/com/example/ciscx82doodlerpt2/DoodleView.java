@@ -6,10 +6,23 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 public class DoodleView extends View{
+    // define a class to create and hold objects that represent user Actions
+    // contains a Path and a Paint
+//    private class Stroke{
+//        public Path path;
+//        public Paint brush;
+//
+//        // constructor to initialize stroke
+//        public Stroke(Path path, Paint brush){
+//            this.path=path;
+//            this.brush=brush;
+//        }
+//    }
     private Path path= new Path();
     private Paint brush=new Paint();
 
@@ -50,12 +63,20 @@ public class DoodleView extends View{
         canvas.drawPath(path, brush);
     }
 
-    public void clear(){
-        setBackgroundColor(0);
+    public void changeColor(int color) {
+        brush= new Paint();
+        brush.setColor(color);
+        brush.setAntiAlias(true);
+        brush.setStyle(Paint.Style.STROKE);
+        brush.setStrokeJoin(Paint.Join.ROUND);
+        brush.setStrokeWidth(6f);
         invalidate();
     }
-//    public void changeColor(Color color){
-//        brush.setColor(color);
-//    }
+
+    public void clear(){
+        setBackgroundColor(0);
+//        path.clear();
+        invalidate();
+    }
 }
 
