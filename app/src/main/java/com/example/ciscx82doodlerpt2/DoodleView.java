@@ -13,16 +13,16 @@ import android.view.View;
 public class DoodleView extends View{
     // define a class to create and hold objects that represent user Actions
     // contains a Path and a Paint
-//    private class Stroke{
-//        public Path path;
-//        public Paint brush;
-//
-//        // constructor to initialize stroke
-//        public Stroke(Path path, Paint brush){
-//            this.path=path;
-//            this.brush=brush;
-//        }
-//    }
+    private class Stroke{
+        public Path path;
+        public Paint brush;
+
+        // constructor to initialize stroke
+        public Stroke(Path path, Paint brush){
+            this.path=path;
+            this.brush=brush;
+        }
+    }
     private Path path= new Path();
     private Paint brush=new Paint();
 
