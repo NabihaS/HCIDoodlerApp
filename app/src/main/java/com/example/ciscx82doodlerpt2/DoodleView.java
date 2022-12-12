@@ -27,6 +27,7 @@ public class DoodleView extends View{
     }
     // define array of users strokes
     private ArrayList<Stroke> paths=new ArrayList<>();
+    private ArrayList<Stroke> undonePaths=new ArrayList<>();
     private Path path= new Path();
     private Paint brush=new Paint();
 
@@ -51,16 +52,20 @@ public class DoodleView extends View{
         // gotta know where to put the colour
         switch(event.getAction()){
             case MotionEvent.ACTION_DOWN:
+                path.moveTo(xPos, yPos);
                 // doing this right? adding to paths
                 Stroke p=new Stroke(path, brush);
                 paths.add(p);
-                path.moveTo(xPos, yPos);
                 return true;
             case MotionEvent.ACTION_MOVE:
+                if (undonePaths.size()>0){
+                    undonePaths.clear();
+                }
                 path.lineTo(xPos, yPos);
                 break;
-            default:
-                return false;
+            case MotionEvent.ACTION_UP:
+                path=new Path();
+                break;
         }
         postInvalidate();
         return false;
@@ -72,6 +77,8 @@ public class DoodleView extends View{
         for(Stroke path : paths){
             canvas.drawPath(path.path, path.brush);
         }
+
+        Log.d("value", "strokes: " +paths.size());
     }
 
     public void changeColor(int color) {
@@ -95,8 +102,18 @@ public class DoodleView extends View{
         // check whether the List is empty or not
         // if empty, the remove method will return an error
         if (paths.size() != 0) {
-            paths.remove(paths.size() - 1);
+            undonePaths.add(paths.remove(paths.size()-1));
+            path= new Path();
             invalidate();
+            Log.d("value", "stroke removed");
+        }
+    }
+
+    public void redo(){
+        if (undonePaths.size() != 0) {
+            paths.add(undonePaths.remove(undonePaths.size()-1));
+            invalidate();
+            Log.d("value", "stroke added back");
         }
     }
 }

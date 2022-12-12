@@ -20,17 +20,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         DoodleView doodleView=findViewById(R.id.doodleView);
         Button undoButton= findViewById(R.id.undoButton);
+        Button redoButton= findViewById(R.id.redoButton);
         Button blueButton=findViewById(R.id.blueButton);
         Button yellowButton=findViewById(R.id.yellowButton);
         Button redButton=findViewById(R.id.redButton);
         Button colorButton=findViewById(R.id.colorButton);
-
 
         undoButton.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         doodleView.undo();
+                    }
+                }
+        );
+        redoButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        doodleView.redo();
                     }
                 }
         );
